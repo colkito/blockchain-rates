@@ -30,38 +30,38 @@ npm i blockchain-rates --save
 Getting a rate
 
 ```js
-import bitpayRates from 'blockchain-rates';
+import blockchainRates from 'blockchain-rates';
 
-const code = 'ARS'; // see list of codes bellow
+const code = 'BRL'; // see list of codes bellow
 
 // Using Promises
-const ratePromise = bitpayRates.get(code);
+const ratePromise = blockchainRates.get(code);
 ratePromise
-  .then(rate => console.log('Promise Rate:', rate)) // i.e { code: 'ARS', name: 'Argentine Peso', rate: 440369.72 }
+  .then(rate => console.log('Promise Rate:', rate)) // i.e { "BRL" : {"15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$" }
   .catch(err => console.log('Promise Error:', err));
 
 // Using Callback
-bitpayRates.get(code, (err, res) => {
+blockchainRates.get(code, (err, res) => {
   console.log('Callback Error:', err);
-  console.log('Callback Rate:', res); // i.e { code: 'ARS', name: 'Argentine Peso', rate: 440369.72 }
+  console.log('Callback Rate:', res); // i.e { "BRL" : {"15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$" }
 });
 ```
 
 Getting all the rates
 
 ```js
-import bitpayRates from 'blockchain-rates';
+import blockchainRates from 'blockchain-rates';
 
 // Using Promises
-const ratesPromise = bitpayRates.get();
+const ratesPromise = blockchainRates.get();
 ratesPromise
-  .then(rates => console.log('Promise Rates:', rates)) // i.e [{ code: 'ARS', name: 'Argentine Peso', rate: 440369.72 }, {...}]
+  .then(rates => console.log('Promise Rates:', rates)) // i.e {"BRL" : {"15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$"}, "USD": {...}, ...}
   .catch(err => console.log('Promise Error:', err));
 
 // Using Callback
-bitpayRates.get((err, res) => {
+blockchainRates.get((err, res) => {
   console.log('Callback Error:', err);
-  console.log('Callback Rates:', res); // i.e [{ code: 'ARS', name: 'Argentine Peso', rate: 440369.72 }, {...}]
+  console.log('Callback Rates:', res); // i.e {"BRL" : {"15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$"}, "USD": {...}, ...}
 });
 ```
 

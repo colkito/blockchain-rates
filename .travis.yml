@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - 10
+  - lts/*
+  - node
+branches:
+  only:
+    - master
+cache: yarn
