@@ -37,13 +37,13 @@ const code = 'BRL'; // see list of codes bellow
 // Using Promises
 const ratePromise = blockchainRates.get(code);
 ratePromise
-  .then(rate => console.log('Promise Rate:', rate)) // i.e { "BRL" : {"15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$" }
+  .then(rate => console.log('Promise Rate:', rate)) // i.e { "15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$" }
   .catch(err => console.log('Promise Error:', err));
 
 // Using Callback
 blockchainRates.get(code, (err, res) => {
   console.log('Callback Error:', err);
-  console.log('Callback Rate:', res); // i.e { "BRL" : {"15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$" }
+  console.log('Callback Rate:', res); // i.e { "15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$" }
 });
 ```
 
@@ -55,13 +55,13 @@ import blockchainRates from 'blockchain-rates';
 // Using Promises
 const ratesPromise = blockchainRates.get();
 ratesPromise
-  .then(rates => console.log('Promise Rates:', rates)) // i.e {"BRL" : {"15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$"}, "USD": {...}, ...}
+  .then(rates => console.log('Promise Rates:', rates)) // i.e { "BRL" : {"15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$"}, "USD": {...}, ... }
   .catch(err => console.log('Promise Error:', err));
 
 // Using Callback
 blockchainRates.get((err, res) => {
   console.log('Callback Error:', err);
-  console.log('Callback Rates:', res); // i.e {"BRL" : {"15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$"}, "USD": {...}, ...}
+  console.log('Callback Rates:', res); // i.e { "BRL" : {"15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$"}, "USD": {...}, ... }
 });
 ```
 
