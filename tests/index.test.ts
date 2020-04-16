@@ -57,9 +57,9 @@ describe('Get a rate by code', () => {
   });
 
   test('using promises', async () => {
-    const rates: any = await get(code);
-    expect(typeof rates).toEqual('object');
-    expect(rates.symbol).toEqual(symbol);
+    const rate: any = await get(code);
+    expect(typeof rate).toEqual('object');
+    expect(rate.symbol).toEqual(symbol);
   });
 
   test('using callback', () => {
