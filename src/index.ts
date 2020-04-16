@@ -12,7 +12,7 @@ export type RateType = {
   symbol: string;
 };
 
-export const get = (code: string, callback?: Callback) => {
+export const get = (code?: string | Callback, callback?: Callback) => {
   let cb = callback || ((): void => {});
 
   if (code && typeof code === 'function') {

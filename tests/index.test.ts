@@ -2,31 +2,37 @@ import nock from 'nock';
 
 import { get } from '../src';
 
-const code = 'USD';
-const symbol = '$';
+// const code = 'BRL';
+const symbol = 'R$';
 
-describe('Get a rate', () => {
+describe('Get all rates', () => {
   beforeEach(() => {
     nock('https://blockchain.info')
       .persist()
       .get('/ticker?cors=true')
       .reply(200, {
         data: {
-          USD: {
+          BRL: {
             symbol
           }
         }
       });
   });
 
-  test('Get a rate by code using Callback', () => {
-    get(code, (err: any, rate) => {
+  test('using callback', () => {
+    get((err: any, rate) => {
       expect(typeof rate).toEqual('object');
+      expect(typeof rate.data).toEqual('object');
+      expect(typeof rate.data.BRL).toEqual('object');
+      expect(typeof rate.data.BRL.symbol).toEqual('string');
     });
   });
 
-  test('Get a rate by code using Promises', async () => {
-    const rate: any = await get(code);
+  test('using promises', async () => {
+    const rate: any = await get();
     expect(typeof rate).toEqual('object');
+    expect(typeof rate.data).toEqual('object');
+    expect(typeof rate.data.BRL).toEqual('object');
+    expect(typeof rate.data.BRL.symbol).toEqual('string');
   });
 });
