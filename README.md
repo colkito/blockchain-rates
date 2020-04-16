@@ -65,9 +65,9 @@ blockchainRates.get((err, res) => {
 });
 ```
 
-## Available Codes (updated: 2019-12-15)
+## Available Codes (updated: 2020-04-16)
 
-The complete list of 22 codes:
+The complete list of 23 codes:
 
 - USD (US Dollar)
 - AUD (Australian Dollar)
@@ -90,6 +90,7 @@ The complete list of 22 codes:
 - SEK (Swedish Krona)
 - SGD (Singapore Dollar)
 - THB (Thai Baht)
+- TRY (Turkish Lira)
 - TWD (New Taiwan Dollar)
 
 ## Related Packages
