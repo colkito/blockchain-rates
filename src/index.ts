@@ -37,8 +37,7 @@ export const get = (code: string, callback?: Callback) => {
 
         res.on('end', () => {
           try {
-            const parsed = JSON.parse(data);
-            let response: any = parsed;
+            let response: any = JSON.parse(data);
 
             if (code && typeof code === "string") {
               response = response[code.toUpperCase()] || { error: `code "${code}" not found` };
