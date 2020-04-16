@@ -3,7 +3,7 @@ import nock from 'nock';
 import { get } from '../src';
 
 const code = 'USD';
-const symbol = 'R$';
+const symbol = '$';
 
 describe('Get a rate', () => {
   beforeEach(() => {
