@@ -4,7 +4,7 @@
 [![BundlePhobia](https://img.shields.io/bundlephobia/min/blockchain-rates.svg?style=flat-square)](https://bundlephobia.com/result?p=blockchain-rates)
 [![BundlePhobia](https://img.shields.io/bundlephobia/minzip/blockchain-rates.svg?style=flat-square)](https://bundlephobia.com/result?p=blockchain-rates)
 
-A tiny (and zero-deps) wrapper for the [Blockchain](https://blockchain.info/ticker) Exchange Rates API. Written in TypeScript.
+A tiny (and zero-deps) wrapper for the [Blockchain](https://blockchain.info/ticker) Exchange Rates (ticker) API. Written in TypeScript.
 
 This module returns a `Promise` but can be used with `Callback` as well. ✨
 
@@ -91,3 +91,7 @@ The complete list of 22 codes:
 - SGD (Singapore Dollar)
 - THB (Thai Baht)
 - TWD (New Taiwan Dollar)
+
+## Related Packages
+
+- [BitPay Rates API](https://npmjs.com/bitpay-rates)
