@@ -5,7 +5,7 @@ import https from 'https';
 export type Callback = (...args: any[]) => void;
 
 export type RateType = {
-  "15m": number;
+  '15m': number;
   last: number;
   buy: number;
   sell: number;
@@ -24,7 +24,7 @@ export const get = (code: string, callback?: Callback) => {
       host: 'blockchain.info',
       path: '/ticker?cors=true',
       headers: {},
-      agent: false
+      agent: false,
     };
 
     return https
@@ -39,7 +39,7 @@ export const get = (code: string, callback?: Callback) => {
           try {
             let response: any = JSON.parse(data);
 
-            if (code && typeof code === "string") {
+            if (code && typeof code === 'string') {
               response = response[code.toUpperCase()] || { error: `code "${code}" not found` };
             }
 
