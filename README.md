@@ -26,9 +26,9 @@ Using npm:
 npm i blockchain-rates --save
 ```
 
-## Example
+## Examples
 
-Getting a rate
+Getting a rate by code
 
 ```js
 import blockchainRates from 'blockchain-rates';
