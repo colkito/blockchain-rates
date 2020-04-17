@@ -1,6 +1,6 @@
 {
   "name": "blockchain-rates",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A tiny NodeJS wrapper for the Blockchain Exchange Rates API",
   "engines": {
     "node": ">=10"
