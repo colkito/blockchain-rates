@@ -6,9 +6,10 @@
 
 A tiny (and zero-deps) wrapper for the [Blockchain](https://blockchain.info/ticker) Exchange Rates (ticker) API. Written in TypeScript.
 
-This module returns a `Promise` but can be used with `Callback` as well. ✨
+This module returns a `Promise` but can be used with a `Callback` as well. ✨
 
 ## Requirements
+
 - nodejs >= 10.x
 
 ## Installing
@@ -34,17 +35,29 @@ import blockchainRates from 'blockchain-rates';
 
 const code = 'BRL'; // see list of codes bellow
 
-// Using Promises
+// Using promise
 const ratePromise = blockchainRates.get(code);
 ratePromise
   .then(rate => console.log('Promise Rate:', rate)) // i.e { "15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$" }
   .catch(err => console.log('Promise Error:', err));
 
-// Using Callback
+// Using callback
 blockchainRates.get(code, (err, res) => {
   console.log('Callback Error:', err);
   console.log('Callback Rate:', res); // i.e { "15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$" }
 });
+```
+
+Successful response
+
+```json
+{
+  "15m": 33997.0,
+  "last": 33997.0,
+  "buy": 33997.0,
+  "sell": 33997.0,
+  "symbol": "R$"
+}
 ```
 
 Getting all the rates
@@ -52,17 +65,39 @@ Getting all the rates
 ```js
 import blockchainRates from 'blockchain-rates';
 
-// Using Promises
+// Using promise
 const ratesPromise = blockchainRates.get();
 ratesPromise
   .then(rates => console.log('Promise Rates:', rates)) // i.e { "BRL" : {"15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$"}, "USD": {...}, ... }
   .catch(err => console.log('Promise Error:', err));
 
-// Using Callback
+// Using callback
 blockchainRates.get((err, res) => {
   console.log('Callback Error:', err);
   console.log('Callback Rates:', res); // i.e { "BRL" : {"15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$"}, "USD": {...}, ... }
 });
+```
+
+Successful response
+
+```json
+{
+  "BRL": {
+    "15m": 33997.0,
+    "last": 33997.0,
+    "buy": 33997.0,
+    "sell": 33997.0,
+    "symbol": "R$"
+  },
+  "USD": {
+    "15m": 7046.5,
+    "last": 7046.5,
+    "buy": 7046.5,
+    "sell": 7046.5,
+    "symbol": "$"
+  },
+  ...
+}
 ```
 
 ## Available Codes (updated: 2020-04-16)
