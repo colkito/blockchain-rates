@@ -12,39 +12,46 @@
     "countries",
     "price"
   ],
-  "author": "Mario Colque <colquemario@gmail.com>",
+  "author": "Mario Colque <bycolco@gmail.com>",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/colcodev/blockchain-rates.git"
+    "url": "https://github.com/bycolco/blockchain-rates.git"
   },
   "bugs": {
-    "url": "https://github.com/colcodev/blockchain-rates/issues"
+    "url": "https://github.com/bycolco/blockchain-rates/issues"
   },
-  "homepage": "https://github.com/colcodev/blockchain-rates#readme",
+  "homepage": "https://github.com/bycolco/blockchain-rates#readme",
   "scripts": {
-    "test": "jest --config jestconfig.json",
-    "build": "tsc",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "build": "tsc --declaration && tsc --removeComments && npm run minifyDeclarations && npm run minify",
     "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "tslint -p tsconfig.json",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint",
+    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts}' --quiet --fix",
+    "minify": "jsmin -l 3 -o dist/index.js dist/index.js",
+    "minifyDeclarations": "jsmin -l 3 -o dist/index.d.ts dist/index.d.ts",
+    "prepublishOnly": "npm test && npm run lint && npm run build",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags"
   },
   "devDependencies": {
-    "@types/jest": "^25.2.1",
-    "@types/node": "^13.11.1",
-    "jest": "^25.3.0",
-    "nock": "^12.0.3",
-    "prettier": "^2.0.4",
-    "ts-jest": "^25.3.1",
-    "tslint": "^6.1.1",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.8.3"
+    "@types/jest": "^26.0.21",
+    "@types/node": "^14.14.35",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.6.3",
+    "jsmin": "^1.0.1",
+    "nock": "^13.0.11",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.5.4",
+    "typescript": "^4.2.3"
   },
   "files": [
     "dist/**/*"

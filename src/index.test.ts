@@ -1,6 +1,6 @@
 import nock from 'nock';
 
-import { get } from '../src';
+import { get } from './index';
 
 describe('Get all rates', () => {
   beforeEach(() => {
@@ -9,11 +9,11 @@ describe('Get all rates', () => {
       .get('/ticker?cors=true')
       .reply(200, {
         BRL: {
-          symbol: 'R$'
+          symbol: 'R$',
         },
         USD: {
-          symbol: '$'
-        }
+          symbol: '$',
+        },
       });
   });
 
@@ -35,7 +35,6 @@ describe('Get all rates', () => {
       expect(typeof rates.USD.symbol).toEqual('string');
     });
   });
-
 });
 
 describe('Get a rate by code', () => {
@@ -48,11 +47,11 @@ describe('Get a rate by code', () => {
       .get('/ticker?cors=true')
       .reply(200, {
         BRL: {
-          symbol: 'R$'
+          symbol: 'R$',
         },
         USD: {
-          symbol: '$'
-        }
+          symbol: '$',
+        },
       });
   });
 
