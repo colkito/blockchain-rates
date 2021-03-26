@@ -1,6 +1,6 @@
 # blockchain-rates
 
-[![Build Status](https://img.shields.io/travis/colcodev/blockchain-rates.svg?style=flat-square)](https://travis-ci.org/colcodev/blockchain-rates)
+[![Build Status](https://img.shields.io/travis/bycolco/blockchain-rates.svg?style=flat-square)](https://travis-ci.org/bycolco/blockchain-rates)
 [![BundlePhobia](https://img.shields.io/bundlephobia/min/blockchain-rates.svg?style=flat-square)](https://bundlephobia.com/result?p=blockchain-rates)
 [![BundlePhobia](https://img.shields.io/bundlephobia/minzip/blockchain-rates.svg?style=flat-square)](https://bundlephobia.com/result?p=blockchain-rates)
 
@@ -11,20 +11,6 @@ This module returns a `Promise` but can be used with a `Callback` as well. ✨
 ## Requirements
 
 - nodejs >= 10.x
-
-## Installing
-
-Using yarn:
-
-```bash
-yarn add blockchain-rates
-```
-
-Using npm:
-
-```bash
-npm i blockchain-rates --save
-```
 
 ## Examples
 
@@ -38,13 +24,13 @@ const code = 'BRL'; // see list of codes bellow
 // Using promise
 const ratePromise = blockchainRates.get(code);
 ratePromise
-  .then(rate => console.log('Promise Rate:', rate)) // i.e { "15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$" }
-  .catch(err => console.log('Promise Error:', err));
+  .then((rate) => console.log('Promise Rate:', rate))
+  .catch((err) => console.log('Promise Error:', err));
 
 // Using callback
 blockchainRates.get(code, (err, res) => {
   console.log('Callback Error:', err);
-  console.log('Callback Rate:', res); // i.e { "15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$" }
+  console.log('Callback Rate:', res);
 });
 ```
 
@@ -68,13 +54,13 @@ import blockchainRates from 'blockchain-rates';
 // Using promise
 const ratesPromise = blockchainRates.get();
 ratesPromise
-  .then(rates => console.log('Promise Rates:', rates)) // i.e { "BRL" : {"15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$"}, "USD": {...}, ... }
-  .catch(err => console.log('Promise Error:', err));
+  .then((rates) => console.log('Promise Rates:', rates))
+  .catch((err) => console.log('Promise Error:', err));
 
 // Using callback
 blockchainRates.get((err, res) => {
   console.log('Callback Error:', err);
-  console.log('Callback Rates:', res); // i.e { "BRL" : {"15m" : 33997.0, "last" : 33997.0, "buy" : 33997.0, "sell" : 33997.0, "symbol" : "R$"}, "USD": {...}, ... }
+  console.log('Callback Rates:', res);
 });
 ```
 
@@ -100,33 +86,9 @@ Successful response
 }
 ```
 
-## Available Codes (updated: 2020-04-16)
+## Available Codes (updated: 2021-03-26)
 
-The complete list of 23 codes:
-
-- USD (US Dollar)
-- AUD (Australian Dollar)
-- BRL (Brazilian Real)
-- CAD (Canadian Dollar)
-- CHF (Swiss Franc)
-- CLP (Chilean Peso)
-- CNY (Chinese Yuan)
-- DKK (Danish Krone)
-- EUR (Eurozone Euro)
-- GBP (Pound Sterling)
-- HKD (Hong Kong Dollar)
-- INR (Indian Rupee)
-- ISK (Icelandic Króna)
-- JPY (Japanese Yen)
-- KRW (South Korean Won)
-- NZD (New Zealand Dollar)
-- PLN (Polish Zloty)
-- RUB (Russian Ruble)
-- SEK (Swedish Krona)
-- SGD (Singapore Dollar)
-- THB (Thai Baht)
-- TRY (Turkish Lira)
-- TWD (New Taiwan Dollar)
+[Follow this link](CODES.md#available-codes-updated-2021-03-26) to see the complete list of 23 codes.
 
 ## Related Packages
 
