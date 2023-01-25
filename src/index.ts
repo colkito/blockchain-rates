@@ -8,7 +8,7 @@ export type RateObj = {
   symbol: string;
 };
 
-export type RateResponse = RateObj | [RateObj];
+export type RateResponse = RateObj | Record<string, RateObj>;
 
 export type Callback = (error: Error | null, data?: RateResponse) => void;
 
