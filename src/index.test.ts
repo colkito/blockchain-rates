@@ -8,11 +8,26 @@ describe('Get all rates', () => {
       .persist()
       .get('/ticker?cors=true')
       .reply(200, {
-        BRL: {
-          symbol: 'R$',
-        },
         USD: {
+          '15m': 57527.96,
+          last: 57527.96,
+          buy: 57527.96,
+          sell: 57527.96,
           symbol: '$',
+        },
+        AUD: {
+          '15m': 74266.92,
+          last: 74266.92,
+          buy: 74266.92,
+          sell: 74266.92,
+          symbol: '$',
+        },
+        BRL: {
+          '15m': 308021.94,
+          last: 308021.94,
+          buy: 308021.94,
+          sell: 308021.94,
+          symbol: 'R$',
         },
       });
   });
@@ -27,7 +42,7 @@ describe('Get all rates', () => {
   });
 
   test('using callback', () => {
-    get((err: any, rates) => {
+    get((_err, rates: any) => {
       expect(typeof rates).toEqual('object');
       expect(typeof rates.BRL).toEqual('object');
       expect(typeof rates.BRL.symbol).toEqual('string');
@@ -38,8 +53,8 @@ describe('Get all rates', () => {
 });
 
 describe('Get a rate by code', () => {
-  const code = 'BRL';
-  const symbol = 'R$';
+  const codeMock = 'BRL';
+  const symbolMock = 'R$';
 
   beforeEach(() => {
     nock('https://blockchain.info')
@@ -56,15 +71,15 @@ describe('Get a rate by code', () => {
   });
 
   test('using promises', async () => {
-    const rate: any = await get(code);
+    const rate: any = await get(codeMock);
     expect(typeof rate).toEqual('object');
-    expect(rate.symbol).toEqual(symbol);
+    expect(rate.symbol).toEqual(symbolMock);
   });
 
   test('using callback', () => {
-    get(code, (err: any, rate) => {
+    get(codeMock, (_err, rate: any) => {
       expect(typeof rate).toEqual('object');
-      expect(rate.symbol).toEqual(symbol);
+      expect(rate.symbol).toEqual(symbolMock);
     });
   });
 });
