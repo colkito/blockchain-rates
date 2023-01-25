@@ -75,7 +75,7 @@ Successful response
 
 More examples [here](example/rates-example.js).
 
-## Available Codes (updated: 2021-03-26)
+## Available Codes (updated: 2023-01-25)
 
 [Follow this link](CODES.md) to see the complete list of codes.
 
