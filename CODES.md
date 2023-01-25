@@ -1,8 +1,8 @@
 # blockchain-rates
 
-## Available Codes (updated: 2021-03-26)
+## Available Codes
 
-The complete list of 23 codes:
+This is the complete list of 23 codes:
 
 - USD (US Dollar)
 - AUD (Australian Dollar)
