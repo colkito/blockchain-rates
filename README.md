@@ -1,5 +1,6 @@
 # blockchain-rates
 
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/colkito/blockchain-rates/npm-publish.yml?style=flat-square)
 [![BundlePhobia](https://img.shields.io/bundlephobia/min/blockchain-rates.svg?style=flat-square)](https://bundlephobia.com/result?p=blockchain-rates)
 [![BundlePhobia](https://img.shields.io/bundlephobia/minzip/blockchain-rates.svg?style=flat-square)](https://bundlephobia.com/result?p=blockchain-rates)
 
